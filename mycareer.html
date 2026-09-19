@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="">
+  <title>박신미 | Career Storytelling</title>
+  <link rel="stylesheet" href="mycareer.css?v=20260919-3">
+  <script type="module" src="mycareer/app.js?v=20260919-2"></script>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <p class="load-status" id="loadStatus" role="status">콘텐츠를 불러오는 중입니다.</p>
+
+  <main hidden>
+    <section class="slide home-slide" id="home" aria-label="Career Storytelling Home">
+      <div class="slide-inner home-grid">
+        <figure class="quokka-figure">
+          <div class="quokka-card"><img id="quokkaImage" src="images/쿼카 이미지.png" alt=""></div>
+          <figcaption data-text="home.imageCaption"></figcaption>
+        </figure>
+        <nav class="home-menu" id="homeMenu" aria-label="발표 목차"></nav>
+      </div>
+      <span class="page-no">01 / HOME</span>
+    </section>
+
+    <section class="slide" id="journey" aria-labelledby="journeyTitle">
+      <nav class="section-nav" aria-label="발표 영역 이동"></nav>
+      <div class="slide-inner">
+        <header class="slide-head">
+          <p class="eyebrow" data-text="journey.eyebrow"></p>
+          <h2 id="journeyTitle" data-text="journey.title"></h2>
+          <p class="lead" data-text="journey.description"></p>
+        </header>
+        <div class="journey-layout awaiting">
+          <div class="select-list journey-list" id="journeyTabs" aria-label="경력 연도 선택"></div>
+          <article class="detail-panel journey-detail" id="journeyDetail" aria-live="polite" hidden></article>
+        </div>
+      </div>
+      <span class="page-no">02 / JOURNEY</span>
+    </section>
+
+    <section class="slide" id="strengths" aria-labelledby="strengthsTitle">
+      <nav class="section-nav" aria-label="발표 영역 이동"></nav>
+      <div class="slide-inner">
+        <header class="slide-head compact-head">
+          <p class="eyebrow" data-text="strengths.eyebrow"></p>
+          <h2 id="strengthsTitle" data-text="strengths.title"></h2>
+          <!-- <p class="lead" data-text="strengths.description"> -->
+            <div class="case-steps">
+            <div class="detail-panel case-detail"><b>문제 파악</b></div>
+            <div class="detail-panel case-detail"><b>차이 도출</b></div>
+            <div class="detail-panel case-detail"><b>기준 정의</b></div>
+            <div class="detail-panel case-detail"><b>성과 분석</b></div>
+            </div>
+          <!-- </p> -->
+        </header>
+        <section class="method-strip" aria-label="네 가지 문제 해결 역량">
+          <div id="methodSteps"></div>
+        </section>
+        <div class="strength-layout awaiting">
+          <div class="select-list case-list" id="caseTabs" aria-label="강점 사례 선택"></div>
+          <article class="detail-panel case-detail" id="caseDetail" aria-live="polite" hidden></article>
+        </div>
+        <p class="closing" data-text="strengths.closing"></p>
+      </div>
+      <span class="page-no">03 / STRENGTHS</span>
+    </section>
+
+    <section class="slide" id="growth" aria-labelledby="growthTitle">
+      <nav class="section-nav" aria-label="발표 영역 이동"></nav>
+      <div class="slide-inner">
+        <header class="slide-head compact-head">
+          <p class="eyebrow" data-text="growth.eyebrow"></p>
+          <h2 id="growthTitle" data-text="growth.title"></h2>
+          <p class="lead" data-text="growth.description"></p>
+        </header>
+        <div class="growth-layout">
+          <div>
+            <div class="capability-tabs" id="capabilityTabs" aria-label="역량 선택"></div>
+            <article class="growth-detail" id="growthDetail" aria-live="polite" hidden></article>
+          </div>
+          <div class="growth-secondary">
+            <section class="accordion-panel" id="foundationPanel">
+              <button class="accordion-trigger" type="button" aria-expanded="false"><span data-text="growth.foundationTitle"></span><b>＋</b></button>
+              <div class="accordion-content" id="foundationContent" hidden></div>
+            </section>
+            <section class="accordion-panel" id="priorityPanel">
+              <button class="accordion-trigger" type="button" aria-expanded="false"><span data-text="growth.priorityTitle"></span><b>＋</b></button>
+              <div class="accordion-content" id="priorityContent" hidden></div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <span class="page-no">04 / GROWTH</span>
+    </section>
+  </main>
+  <noscript>이 페이지는 JavaScript를 활성화해야 표시됩니다.</noscript>
+</body>
+</html>

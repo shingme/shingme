@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# IDE 설정
+.vscode/
+.idea/
+
+# 로컬 임시 파일과 로그
+*.log
+*.tmp
+*~
+
