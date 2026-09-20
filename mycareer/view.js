@@ -127,7 +127,7 @@ export function mountCareerPage(root, content) {
       $('#journeyDetail').hidden = false; $('#journeyDetail').closest('.journey-layout').classList.remove('awaiting');
       // 한 연도에 여러 프로젝트가 있으면 각각 독립된 카드로 구분합니다.
       const heading = make('div', 'journey-detail-head');
-      heading.append(make('p', 'detail-kicker', 'PROJECT EXPERIENCE'), make('h6', '', `${item.industry} · ${item.projects.length}개 프로젝트`));
+      heading.append(make('p', 'detail-kicker', 'PROJECT EXPERIENCE'));
       const projects = make('div', 'project-cards');
       projects.append(...item.projects.map(project => {
         const card = make('article', 'project-card');
@@ -170,22 +170,50 @@ export function mountCareerPage(root, content) {
       const head = make('header', 'case-title-row'); const title = make('div');
       title.append(make('p', 'detail-kicker', item.project), make('h3', '', item.title)); head.append(title, make('span', 'chip', item.chip));
       const steps = make('div', 'case-steps');
-      steps.append(...item.steps.map((step, index) => { const card = make('div', 'case-step'); card.append(make('b', '', `${String(index + 1).padStart(2, '0')} ${step.title}`), make('p', '', step.description)); return card; }));
+      steps.append(...item.steps.map((step, index) => {
+        const card = make('div', 'case-step');
+        const descriptions = make('ul', 'case-step-list');
+        descriptions.append(...step.description.map(description => make('li', '', description)));
+        card.append(
+          make('b', '', `${String(index + 1).padStart(2, '0')} ${step.title}`),
+          descriptions
+        );
+        return card;
+      }));
       $('#caseDetail').replaceChildren(head, steps); reanimate($('#caseDetail'));
     });
 
   /* --------------------------------------------------------------------------
    * GROWTH 영역 - AI 확장 영역과 사람의 판단
    * -------------------------------------------------------------------------- */
-  // 역량 버튼을 클릭하면 AI가 도울 부분과 본인이 책임질 판단을 나란히 표시합니다.
-  selectable($('#capabilityTabs'), content.growth.capabilities,
-    (button, item) => setText(button, item.label),
-    item => {
-      $('#growthDetail').hidden = false;
-      const ai = make('section', 'judgment-card'); ai.append(make('small', '', 'AI로 확장하는 영역'), make('h3', '', item.ai));
-      const human = make('section', 'judgment-card human'); human.append(make('small', '', '내가 책임질 판단'), make('h3', '', item.human));
-      $('#growthDetail').replaceChildren(ai, human); reanimate($('#growthDetail'));
+  // 네 역량은 처음에는 전체 너비의 보라색 버튼으로만 표시합니다.
+  // 각 버튼은 독립적으로 열리고 닫히며, 열리면 왼쪽으로 줄어들고 오른쪽에 두 판단 영역이 나타납니다.
+  const capabilityRows = content.growth.capabilities.map((item, index) => {
+    const row = make('article', 'capability-row');
+    const button = make('button', 'capability-toggle', item.label);
+    const detailId = `capability-detail-${index}`;
+    button.type = 'button';
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', detailId);
+
+    const details = make('div', 'capability-detail');
+    details.id = detailId;
+    details.setAttribute('aria-hidden', 'true');
+    const ai = make('section', 'capability-value ai-value', item.ai);
+    const human = make('section', 'capability-value human-value', item.human);
+    details.append(ai, human);
+
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      row.classList.toggle('expanded', open);
+      // display 속성을 바꾸지 않고 너비와 투명도만 전환해 레이아웃 깜빡임을 막습니다.
+      details.setAttribute('aria-hidden', String(!open));
     });
+    row.append(button, details);
+    return row;
+  });
+  $('#capabilityRows').replaceChildren(...capabilityRows);
 
   // 기반 강점과 성장 우선순위가 공유하는 작은 카드 목록 생성 함수입니다.
   const fillList = (target, items, numbered = false) => {
@@ -198,15 +226,33 @@ export function mountCareerPage(root, content) {
   fillList($('#priorityContent'), content.growth.priorities, true);
 
   /* --------------------------------------------------------------------------
-   * GROWTH 영역 - 기반 강점 / 더 키울 역량 아코디언
+   * GROWTH 영역 - 기반 강점 / 더 키울 역량 전환 패널
    * -------------------------------------------------------------------------- */
-  // 한 패널을 열면 다른 패널을 닫아 한 화면의 높이를 넘지 않도록 관리합니다.
-  root.querySelectorAll('.accordion-panel').forEach(panel => {
-    const trigger = panel.querySelector('.accordion-trigger'); const contentNode = panel.querySelector('.accordion-content'); const icon = trigger.querySelector('b');
+  // 두 제목은 나란히 표시하고 한 번에 하나의 내용만 엽니다.
+  // 열린 제목을 다시 누르면 해당 내용도 닫혀 초기 상태로 돌아갑니다.
+  const growthToggles = [...root.querySelectorAll('.growth-toggle')];
+  growthToggles.forEach(trigger => {
+    const contentNode = root.getElementById(trigger.getAttribute('aria-controls'));
+    const icon = trigger.querySelector('b');
     trigger.addEventListener('click', () => {
-      const open = trigger.getAttribute('aria-expanded') !== 'true';
-      root.querySelectorAll('.accordion-panel').forEach(other => { const otherTrigger = other.querySelector('.accordion-trigger'); otherTrigger.setAttribute('aria-expanded', 'false'); other.querySelector('.accordion-content').hidden = true; otherTrigger.querySelector('b').textContent = '＋'; });
-      if (open) { trigger.setAttribute('aria-expanded', 'true'); contentNode.hidden = false; icon.textContent = '−'; }
+      const willOpen = trigger.getAttribute('aria-expanded') !== 'true';
+
+      // 먼저 두 패널을 모두 닫아 동시에 표시되지 않게 합니다.
+      growthToggles.forEach(otherTrigger => {
+        const otherContent = root.getElementById(otherTrigger.getAttribute('aria-controls'));
+        otherTrigger.setAttribute('aria-expanded', 'false');
+        otherTrigger.classList.remove('active');
+        otherTrigger.querySelector('b').textContent = '＋';
+        otherContent.hidden = true;
+      });
+
+      if (willOpen) {
+        trigger.setAttribute('aria-expanded', 'true');
+        trigger.classList.add('active');
+        icon.textContent = '−';
+        contentNode.hidden = false;
+        reanimate(contentNode);
+      }
     });
   });
 

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="description" content="">
   <title>박신미 | Career Storytelling</title>
-  <link rel="stylesheet" href="mycareer.css?v=20260919-3">
-  <script type="module" src="mycareer/app.js?v=20260919-2"></script>
+  <link rel="stylesheet" href="mycareer.css?v=20260920-9">
+  <script type="module" src="mycareer/app.js?v=20260920-9"></script>
 </head>
 <body>
   <div class="progress" id="progress" aria-hidden="true"></div>
@@ -14,6 +14,7 @@
 
   <main hidden>
     <section class="slide home-slide" id="home" aria-label="Career Storytelling Home">
+      <p class="home-label" data-text="home.headerLabel"></p>
       <div class="slide-inner home-grid">
         <figure class="quokka-figure">
           <div class="quokka-card"><img id="quokkaImage" src="images/쿼카 이미지.png" alt=""></div>
@@ -49,9 +50,9 @@
           <!-- <p class="lead" data-text="strengths.description"> -->
             <div class="case-steps">
             <div class="detail-panel case-detail"><b>문제 파악</b></div>
-            <div class="detail-panel case-detail"><b>차이 도출</b></div>
+            <div class="detail-panel case-detail"><b>Gap 식별</b></div>
             <div class="detail-panel case-detail"><b>기준 정의</b></div>
-            <div class="detail-panel case-detail"><b>성과 분석</b></div>
+            <div class="detail-panel case-detail"><b>운영 체계 수립</b></div>
             </div>
           <!-- </p> -->
         </header>
@@ -62,7 +63,7 @@
           <div class="select-list case-list" id="caseTabs" aria-label="강점 사례 선택"></div>
           <article class="detail-panel case-detail" id="caseDetail" aria-live="polite" hidden></article>
         </div>
-        <p class="closing" data-text="strengths.closing"></p>
+
       </div>
       <span class="page-no">03 / STRENGTHS</span>
     </section>
@@ -76,20 +77,22 @@
           <p class="lead" data-text="growth.description"></p>
         </header>
         <div class="growth-layout">
-          <div>
-            <div class="capability-tabs" id="capabilityTabs" aria-label="역량 선택"></div>
-            <article class="growth-detail" id="growthDetail" aria-live="polite" hidden></article>
-          </div>
-          <div class="growth-secondary">
-            <section class="accordion-panel" id="foundationPanel">
-              <button class="accordion-trigger" type="button" aria-expanded="false"><span data-text="growth.foundationTitle"></span><b>＋</b></button>
+          <section class="growth-primary" aria-label="AI 활용 영역과 직접 책임질 판단">
+            <div class="capability-column-labels" aria-hidden="true">
+              <span></span><span>AI 활용하는 영역</span><span>내가 가져갈 영역</span>
+            </div>
+            <div class="capability-rows" id="capabilityRows"></div>
+          </section>
+          <section class="growth-secondary" aria-label="강점과 성장 역량">
+            <div class="growth-secondary-tabs">
+              <button class="growth-toggle" type="button" aria-expanded="false" aria-controls="foundationContent"><span data-text="growth.foundationTitle"></span><b>＋</b></button>
+              <button class="growth-toggle" type="button" aria-expanded="false" aria-controls="priorityContent"><span data-text="growth.priorityTitle"></span><b>＋</b></button>
+            </div>
+            <div class="growth-secondary-content">
               <div class="accordion-content" id="foundationContent" hidden></div>
-            </section>
-            <section class="accordion-panel" id="priorityPanel">
-              <button class="accordion-trigger" type="button" aria-expanded="false"><span data-text="growth.priorityTitle"></span><b>＋</b></button>
               <div class="accordion-content" id="priorityContent" hidden></div>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
       </div>
       <span class="page-no">04 / GROWTH</span>

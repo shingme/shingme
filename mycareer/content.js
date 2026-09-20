@@ -84,9 +84,9 @@ export async function loadContent(url) {
   /* 페이지와 영역별 필수 문구 */
   [
     'page.title', 'page.description',
-    'home.imageAlt', 'home.imageCaption',
+    'home.imageAlt', 'home.imageCaption', 'home.headerLabel',
     'journey.title', 'journey.description',
-    'strengths.title', 'strengths.description', 'strengths.closing',
+    'strengths.title', 'strengths.description',
     'growth.title', 'growth.description',
     'growth.foundationTitle', 'growth.priorityTitle'
   ].forEach(path => requireText(getByPath(content, path), path));
@@ -148,7 +148,11 @@ export async function loadContent(url) {
     requireArray(item.steps, `${path}.steps`);
     item.steps.forEach((step, stepIndex) => {
       requireText(step.title, `${path}.steps[${stepIndex}].title`);
-      requireText(step.description, `${path}.steps[${stepIndex}].description`);
+      // description은 수행 업무를 여러 개 담을 수 있는 문자열 배열입니다.
+      requireArray(step.description, `${path}.steps[${stepIndex}].description`);
+      step.description.forEach((description, descriptionIndex) => {
+        requireText(description, `${path}.steps[${stepIndex}].description[${descriptionIndex}]`);
+      });
     });
   });
 

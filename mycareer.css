@@ -56,7 +56,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 /* JOURNEY 프로젝트 카드: 같은 연도의 프로젝트를 이름·수행 내용·경험별로 분리합니다. */
 .journey-detail{display:block;padding:clamp(16px,2.2vw,28px)}
 .journey-detail-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:12px}
-.journey-detail-head .detail-kicker,.journey-detail-head h3{margin:0}
+.journey-detail-head .detail-kicker{margin:0}
 .project-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
 .project-card{min-width:0;padding:clamp(13px,1.6vw,19px);border-radius:16px;background:rgba(11,11,18,.54)}
 .project-card-head{display:flex;align-items:start;justify-content:space-between;gap:10px;margin-bottom:8px}
@@ -101,7 +101,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 #journey .slide-inner{width:min(100%,1540px)}
 #journey .slide-head{margin-bottom:clamp(20px,3vh,30px)}
 #journey .eyebrow{font-size:clamp(14px,1.15vw,19px);letter-spacing:.16em}
-#journey .slide-head h2{font-size:clamp(36px,3.5vw,56px);line-height:1.16;letter-spacing:-.04em}
+#journey .slide-head h2{font-size:clamp(30px,3.5vw,56px);line-height:1.16;letter-spacing:-.04em}
 #journey .slide-head .lead{font-size:clamp(16px,1.35vw,21px);line-height:1.5}
 #journey .journey-layout{grid-template-columns:minmax(260px,.48fr) minmax(0,1.86fr);gap:clamp(20px,2vw,30px)}
 #journey .journey-list{gap:clamp(10px,1.5vh,17px)}
@@ -111,7 +111,6 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 #journey .journey-detail{padding:clamp(16px,1.8vw,27px);border-radius:36px}
 #journey .journey-detail-head{margin-bottom:clamp(12px,1.7vh,18px);padding:0 4px}
 #journey .journey-detail-head .detail-kicker{padding:8px 13px;background:rgba(28,25,43,.94);box-shadow:0 8px 22px rgba(0,0,0,.42);font-size:clamp(12px,1.15vw,18px)}
-#journey .journey-detail-head h3{padding:6px 12px;background:rgba(20,18,29,.9);box-shadow:0 8px 22px rgba(0,0,0,.4);font-size:clamp(13px,1.25vw,19px)}
 #journey .project-cards{gap:clamp(10px,1.5vh,17px)}
 #journey .project-card{min-height:clamp(126px,18vh,190px);grid-template-columns:minmax(0,1.55fr) minmax(280px,.72fr);border-radius:32px}
 #journey .project-main{padding:clamp(19px,2vw,30px);box-shadow:12px 0 30px rgba(0,0,0,.24)}
@@ -143,3 +142,107 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 #journey .project-cards::-webkit-scrollbar-thumb{border-radius:99px;background:var(--accent)}
 #journey .project-cards::-webkit-scrollbar-track{background:transparent}
 @media(max-width:760px){#journey .project-card{min-height:max-content}#journey .project-cards{padding-right:3px}#journey .project-card-head h4,#journey .project-card .project-list li,#journey .project-insight p{word-break:break-word}}
+
+/* STRENGTHS 단계별 수행 업무는 여러 항목을 불릿 목록으로 표시합니다. */
+.case-step-list{margin:0;padding-left:18px}
+.case-step-list li{margin:4px 0;color:var(--text);font-size:clamp(11px,1vw,13px);line-height:1.5}
+.case-step-list li::marker{color:var(--accent)}
+@media(max-height:720px) and (min-width:761px){.case-step-list{padding-left:15px}.case-step-list li{margin:2px 0;font-size:10px}}
+@media(max-width:760px){.case-step-list{padding-left:13px}.case-step-list li{margin:2px 0;font-size:9px}}
+
+
+/* 요청한 발표 제목과 HOME 라벨 크기 */
+.home-label{position:absolute;z-index:20;top:clamp(16px,2.5vh,26px);left:clamp(20px,4vw,48px);margin:0;color:var(--accent);font-size:13px;font-weight:900;letter-spacing:.08em}
+.quokka-figure figcaption{font-size:20px}
+#journey .slide-head h2,#strengths .slide-head h2,#growth .slide-head h2{font-size:25px;line-height:1.25}
+.journey-detail-head{justify-content:flex-start}
+@media(max-width:760px){.home-label{top:12px;left:16px;font-size:10px}.quokka-figure figcaption{font-size:14px}#journey .slide-head h2,#strengths .slide-head h2,#growth .slide-head h2{font-size:25px}}
+
+/* GROWTH 인터랙티브 레이아웃: 초기에는 선택 막대만, 클릭 후 상세 영역을 펼칩니다. */
+#growth .slide-inner{width:min(100%,1420px)}
+#growth .slide-head{margin-bottom:clamp(18px,3vh,30px)}
+#growth .growth-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:clamp(22px,3vw,42px);align-items:start}
+.growth-primary,.growth-secondary{min-width:0}
+.growth-group-title{margin:0 0 18px;font-size:clamp(19px,1.7vw,27px);line-height:1.3}
+.capability-column-labels{display:grid;grid-template-columns:112px 1fr 1fr;gap:12px;margin:0 0 7px;padding:0 2px;color:var(--accent);font-size:10px;font-weight:850;text-align:center}
+.capability-rows{display:grid;gap:12px}
+.capability-row{width:100%;min-width:0;display:flex;gap:0;border-radius:15px;overflow:hidden;transition:gap .32s ease}
+.capability-toggle{flex:1 1 100%;min-width:0;min-height:98px;padding:17px;border:0;border-radius:15px;background:var(--accent);color:#171222;font-size:clamp(15px,1.25vw,19px);font-weight:900;text-align:left;cursor:pointer;transition:flex-basis .34s ease,background .2s ease,transform .2s ease}
+.capability-toggle:hover,.capability-toggle:focus-visible{background:#b98cff}
+.capability-row.expanded{gap:12px;overflow:visible}
+.capability-row.expanded .capability-toggle{flex:0 0 112px}
+.capability-detail{flex:1 1 auto;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;animation:capabilityReveal .32s ease}
+.capability-value{min-width:0;padding:17px 19px;display:flex;align-items:flex-start;border-radius:15px;background:var(--surface);font-size:clamp(12px,1.05vw,15px);line-height:1.5}
+.capability-value.human-value{background:var(--surface-2)}
+@keyframes capabilityReveal{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+
+/* 우측 두 그룹도 각각 독립적으로 열고 닫습니다. */
+#growth .growth-secondary{display:flex;flex-direction:column;gap:16px}
+#growth .accordion-panel{overflow:visible;border:0;border-radius:0;background:transparent}
+#growth .accordion-trigger{padding:0 0 13px;border:0;border-bottom:1px solid rgba(170,112,255,.28);border-radius:0;background:transparent;font-size:clamp(19px,1.7vw,27px)}
+#growth .accordion-trigger b{font-size:22px}
+#growth .accordion-panel.expanded .accordion-trigger{border-bottom-color:transparent}
+#growth .accordion-content{padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;animation:accordionReveal .3s ease}
+#growth .accordion-content[hidden]{display:none}
+#growth .mini-item{min-height:178px;padding:19px;border-radius:15px;background:var(--surface)}
+#growth #priorityPanel .mini-item{background:var(--surface-2)}
+#growth .mini-item small{font-size:9px}
+#growth .mini-item b{margin:13px 0 10px;font-size:clamp(13px,1.15vw,17px);line-height:1.4}
+#growth .mini-item p{font-size:clamp(10px,.9vw,13px);line-height:1.55}
+@keyframes accordionReveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* 낮은 화면에서는 여백과 카드 높이를 줄여 한 슬라이드 안에 유지합니다. */
+@media(max-height:720px) and (min-width:761px){#growth .slide-head{margin-bottom:12px}#growth .growth-layout{gap:20px}.growth-group-title,#growth .accordion-trigger{font-size:18px}.capability-rows{gap:7px}.capability-toggle{min-height:68px;padding:11px;font-size:13px}.capability-column-labels{grid-template-columns:94px 1fr 1fr}.capability-row.expanded{gap:7px}.capability-row.expanded .capability-toggle{flex-basis:94px}.capability-detail{gap:7px}.capability-value{padding:11px;font-size:10px}#growth .growth-secondary{gap:10px}#growth .accordion-trigger{padding-bottom:8px}#growth .accordion-content{gap:7px}#growth .mini-item{min-height:112px;padding:12px}#growth .mini-item b{margin:7px 0 5px;font-size:11px}#growth .mini-item p{font-size:9px}}
+
+/* 모바일에서는 좌우 영역을 위아래로 배치하고 펼침 동작은 그대로 유지합니다. */
+@media(max-width:760px){#growth .growth-layout{grid-template-columns:1fr;gap:12px}.growth-group-title,#growth .accordion-trigger{font-size:15px}.growth-group-title{margin-bottom:8px}.capability-column-labels{grid-template-columns:76px 1fr 1fr;font-size:7px;gap:5px}.capability-rows{gap:5px}.capability-toggle{min-height:50px;padding:8px;font-size:10px}.capability-row.expanded{gap:5px}.capability-row.expanded .capability-toggle{flex-basis:76px}.capability-detail{gap:5px}.capability-value{padding:8px;font-size:8px;border-radius:10px}#growth .growth-secondary{display:grid;grid-template-columns:1fr 1fr;gap:7px}#growth .accordion-trigger{padding:8px 0;font-size:11px}#growth .accordion-content{position:absolute;z-index:30;left:16px;right:16px;grid-template-columns:repeat(3,1fr);padding:9px;background:var(--surface-2);border-radius:13px;box-shadow:0 18px 45px rgba(0,0,0,.55)}#growth .mini-item{min-height:100px;padding:9px}#growth .mini-item b{margin:6px 0 4px;font-size:9px}#growth .mini-item p{font-size:8px}}
+
+/* STRENGTHS 사례 가독성: 상세 불릿은 확대하고 사례 탭은 가장 긴 제목 너비에 맞춥니다. */
+#strengths .strength-layout{grid-template-columns:max-content minmax(0,1fr)}
+#strengths .case-list{width:max-content;max-width:100%}
+#strengths .case-list button{width:100%}
+#strengths .case-list button b{white-space:nowrap}
+#strengths .case-detail .case-step-list li{font-size:15px;line-height:1.5}
+@media(max-width:760px){#strengths .strength-layout{grid-template-columns:1fr}#strengths .case-list{width:100%;max-width:none}#strengths .case-list button{width:auto}#strengths .case-list button b{white-space:normal}#strengths .case-detail .case-step-list li{font-size:15px}}
+
+/* GROWTH 좌측: 그룹 제목 없이 네 역량과 펼쳐지는 판단 내용만 표시합니다. */
+#growth .capability-column-labels{margin-top:0}
+#growth .capability-detail .capability-value{font-size:15px;line-height:1.55}
+
+/* GROWTH 우측: 두 제목을 나란히 두고 선택한 한 그룹의 내용만 아래에 표시합니다. */
+#growth .growth-secondary{display:block;min-width:0}
+#growth .growth-secondary-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+#growth .growth-toggle{width:100%;min-height:58px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(170,112,255,.3);border-radius:15px;background:var(--surface);color:var(--text);font-size:clamp(16px,1.45vw,22px);font-weight:850;text-align:left;cursor:pointer;transition:border-color .2s ease,background .2s ease}
+#growth .growth-toggle b{color:var(--accent);font-size:21px}
+#growth .growth-toggle:hover,#growth .growth-toggle:focus-visible,#growth .growth-toggle.active{border-color:var(--accent);background:var(--surface-2)}
+#growth .growth-secondary-content{min-width:0}
+#growth .growth-secondary-content .accordion-content{position:static;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:0;background:transparent;border-radius:0;box-shadow:none;animation:accordionReveal .3s ease}
+#growth .growth-secondary-content .accordion-content[hidden]{display:none}
+#growth .growth-secondary-content .mini-item{min-height:210px;padding:22px;border-radius:16px;background:var(--surface)}
+#growth #priorityContent .mini-item{background:var(--surface-2)}
+#growth .growth-secondary-content .mini-item small{font-size:11px;letter-spacing:.08em}
+#growth .growth-secondary-content .mini-item b{margin:15px 0 11px;font-size:clamp(15px,1.3vw,19px);line-height:1.4}
+#growth .growth-secondary-content .mini-item p{font-size:clamp(13px,1vw,15px);line-height:1.6}
+@media(max-height:720px) and (min-width:761px){#growth .growth-secondary-tabs{margin-bottom:8px}#growth .growth-toggle{min-height:44px;padding:9px 11px;font-size:14px}#growth .growth-secondary-content .mini-item{min-height:145px;padding:14px}#growth .growth-secondary-content .mini-item small{font-size:9px}#growth .growth-secondary-content .mini-item b{margin:8px 0 6px;font-size:13px}#growth .growth-secondary-content .mini-item p{font-size:11px}#growth .capability-detail .capability-value{font-size:15px}}
+@media(max-width:760px){#growth .growth-secondary{display:block}#growth .growth-secondary-tabs{gap:6px;margin-bottom:7px}#growth .growth-toggle{min-height:42px;padding:8px;font-size:11px;border-radius:10px}#growth .growth-toggle b{font-size:14px}#growth .growth-secondary-content .accordion-content{position:static;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:0;box-shadow:none}#growth .growth-secondary-content .mini-item{min-height:105px;padding:8px}#growth .growth-secondary-content .mini-item small{font-size:7px}#growth .growth-secondary-content .mini-item b{margin:5px 0 4px;font-size:9px}#growth .growth-secondary-content .mini-item p{font-size:8px}#growth .capability-detail .capability-value{font-size:15px}}
+
+/* GROWTH 기반 강점 카드의 텍스트 크기 */
+#growth #foundationContent .mini-item small,
+#growth #foundationContent .mini-item b{font-size:15px}
+#growth #foundationContent .mini-item p{font-size:13px}
+
+/* GROWTH 더 키울 역량 카드의 텍스트 크기 */
+#growth #priorityContent .mini-item small,
+#growth #priorityContent .mini-item b{font-size:15px}
+#growth #priorityContent .mini-item p{font-size:13px}
+
+/* GROWTH 역량 행 전환: DOM을 숨기지 않고 고정 높이에서 너비·투명도만 부드럽게 변경합니다. */
+#growth .capability-row{height:98px;min-height:98px;display:flex;align-items:stretch;gap:0;overflow:hidden;transition:gap .38s cubic-bezier(.22,1,.36,1)}
+#growth .capability-toggle{height:98px;min-height:98px;flex:0 0 100%;transform:none;transition:flex-basis .38s cubic-bezier(.22,1,.36,1),background-color .2s ease,border-radius .38s ease}
+#growth .capability-detail{height:98px;min-width:0;max-width:0;flex:1 1 auto;grid-template-columns:1fr 1fr;gap:12px;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;animation:none;transform:none;transition:max-width .38s cubic-bezier(.22,1,.36,1),opacity .22s ease,visibility 0s linear .38s}
+#growth .capability-row.expanded{gap:12px;overflow:hidden}
+#growth .capability-row.expanded .capability-toggle{flex-basis:112px;border-radius:15px}
+#growth .capability-row.expanded .capability-detail{max-width:calc(100% - 124px);opacity:1;visibility:visible;pointer-events:auto;transition:max-width .38s cubic-bezier(.22,1,.36,1),opacity .28s ease .08s,visibility 0s}
+#growth .capability-value{height:98px;overflow:hidden}
+@media(max-height:720px) and (min-width:761px){#growth .capability-row,#growth .capability-toggle,#growth .capability-detail,#growth .capability-value{height:68px;min-height:68px}#growth .capability-row.expanded .capability-toggle{flex-basis:94px}#growth .capability-row.expanded .capability-detail{max-width:calc(100% - 101px)}}
+@media(max-width:760px){#growth .capability-row,#growth .capability-toggle,#growth .capability-detail,#growth .capability-value{height:50px;min-height:50px}#growth .capability-row.expanded .capability-toggle{flex-basis:76px}#growth .capability-row.expanded .capability-detail{max-width:calc(100% - 81px);gap:5px}}

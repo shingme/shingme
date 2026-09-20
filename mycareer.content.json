@@ -42,33 +42,34 @@
         "eyebrow": {
           "$ref": "dictionary.sectionNames.journey"
         },
-        "title": "8년의 경험,\n무엇을 빌드해왔는가"
+        "title": "8년의 경험, 무엇을 빌드해왔는가"
       },
       {
         "target": "strengths",
         "eyebrow": {
           "$ref": "dictionary.sectionNames.strengths"
         },
-        "title": "기준을 만들고 실행을 이끈\n세 가지 사례"
+        "title": "기준을 만들고 실행을 이끈 세 가지 사례"
       },
       {
         "target": "growth",
         "eyebrow": {
           "$ref": "dictionary.sectionNames.growth"
         },
-        "title": "AI와 함께 더 단단해질\n판단 역량"
+        "title": "AI 활용으로 성장시킬 역량, 보완해 나갈 약점"
       }
-    ]
+    ],
+    "headerLabel": "HOME | Career Storytelling"
   },
   "journey": {
     "eyebrow": {
       "$ref": "dictionary.sectionNames.journey"
     },
-    "title": "인프라·개발·데이터의 흐름을 이해하고,\n요구사항을 구현 가능한 설계로 구체화하는 컨설턴트",
+    "title": "인프라·개발·데이터의 흐름을 이해하고,\n 요구사항을 구현 가능한 설계로 구체화하는 컨설턴트",
     "description": "산업과 기술은 달라졌지만, 복잡한 구조를 이해하고 실행 가능한 기준으로 구체화하는 역량은 일관되게 확장해 왔습니다.",
     "entries": [
       {
-        "period": "2018 — 2020",
+        "period": "2018 — 2021",
         "industry": "공공",
         "projects": [
           {
@@ -90,9 +91,10 @@
               "$ref": "dictionary.durations.twoYears"
             },
             "tasks": [
-              "ETL(Java/SQL) 개발, 데이터 표준화·품질관리"
+              "ETL(Java/SQL) 개발",
+              "데이터 표준화·품질관리"
             ],
-            "insight": "기능과 처리 로직이 동작하는 구조 경험",
+            "insight": "시스템 기능과 처리 로직이 동작하는 구조 경험",
             "durationMonths": 24
           }
         ]
@@ -111,11 +113,9 @@
             "tasks": [
               "As-Is ETL 로직(SQL/Shell) 분석",
               "To-Be ETL 모델링(BW4/HANA) 변환 규칙 도출·영향도 검토",
-              "MIG 검증 로직 개발(Python)"
+              "마이그레이션 검증 로직 개발(Python)"
             ],
-            "insight": {
-              "$ref": "dictionary.experiences.dataModelConnection"
-            },
+            "insight": "기존 기술 지식을 새로운 기술에 연결해, 내부 동작 원리 이해 경험",
             "durationMonths": 24
           },
           {
@@ -134,7 +134,7 @@
         ]
       },
       {
-        "period": "2024 — 2026",
+        "period": "2023 — 2026",
         "industry": "유통 / 제조",
         "projects": [
           {
@@ -143,7 +143,8 @@
             },
             "duration": "2개월",
             "tasks": [
-              "ERP-POS I/F 개발(Java/SQL), 행사 리포트 데이터 정합성 검증"
+              "ERP-POS I/F 개발(Java/SQL)",
+              "행사 리포트 데이터 정합성 검증"
             ],
             "insight": "도메인의 중요성 경험",
             "durationMonths": 2
@@ -154,7 +155,7 @@
             },
             "duration": "2년 5개월",
             "tasks": [
-              "조직체계 통합 기준 수립, 디멘전 표준화",
+              "조직체계 통합 기준 수립, 분석 속성(디멘젼) 표준화",
               "단위·통합테스트 수행 방안 수립 및 리딩",
               "사용자 매뉴얼 작성·변화관리"
             ],
@@ -186,9 +187,9 @@
             },
             "duration": "",
             "tasks": [
-              "제조 공정 지표– P&L(EBIT) VDT 및 손익 추정 모델링"
+              "P&L VDT 및 제조 공정 지표와 EBIT 연결한 손익 추정 모델링"
             ],
-            "insight": "AI가 제시하는 그림을 실행 가능한 단계로 바꾸는 판단 필요",
+            "insight": "AI 제시안을 실행 가능한 단계로 바꾸는 판단 필요",
             "durationMonths": null
           }
         ]
@@ -199,7 +200,7 @@
     "eyebrow": {
       "$ref": "dictionary.sectionNames.strengths"
     },
-    "title": "Gap을 구조화하고\n실행 체계로 전환하는 힘",
+    "title": "Gap을 구조화하고, 실행 체계로 전환하는 힘",
     "description": "문제 파악부터 운영체계 수립까지 네 가지 역량으로 문제를 해결해 왔습니다. 그 역량을 발휘한 세 가지 사례를 소개합니다.",
     "method": [
       {
@@ -211,7 +212,9 @@
       {
         "$ref": "dictionary.method.standard"
       },
-      "운영체계 수립"
+      {
+        "$ref": "dictionary.method.result"
+      }
     ],
     "cases": [
       {
@@ -226,25 +229,34 @@
             "title": {
               "$ref": "dictionary.method.problem"
             },
-            "description": "시스템별 조직 기준 분산으로 설계·모델링 사이에 소통 병목 발생"
+            "description": [
+              "시스템별 조직 기준 분산",
+              "설계·모델링 간 소통 병목"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.gap"
             },
-            "description": "As-Is 조직 구조와 To-Be 화면·데이터 모델 간 차이 분석"
+            "description": [
+              "As-Is 조직 구조와 To-Be 화면 설계 간 차이 분석"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.standard"
             },
-            "description": "조직체계 통합 조건값과 모델링 기준을 업무·데이터 관점으로 연결"
+            "description": [
+              "조직체계 통합 모델링 요건 구체화로 소통 병목 해소"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.result"
             },
-            "description": "여러 KPI를 하나의 기준으로 통합 분석하는 리포트 기반 마련"
+            "description": [
+              "하나의 기준으로 KPI들을 통합 분석할 수 있는 디멘젼 체계 마련"
+            ]
           }
         ]
       },
@@ -260,25 +272,34 @@
             "title": {
               "$ref": "dictionary.method.problem"
             },
-            "description": "화면 단위 검증만으로 데이터 불일치 발생 구간을 찾기 어려움"
+            "description": [
+              "화면 단위 검증만으로 데이터 불일치 발생 구간을 찾기 어려움"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.gap"
             },
-            "description": "수집→영역→마트→화면의 E2E 구간별 검증 체계 설계"
+            "description": [
+              "수집→영역→마트→화면의 E2E 구간별 검증 체계 설계"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.standard"
             },
-            "description": "단계별 테스트 유형·체크포인트와 개발자별 R&R 정의"
+            "description": [
+              "단계별 테스트 유형 분류",
+              "현업·설계자·모델러·개발자 R&R 정의"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.result"
             },
-            "description": "구성원이 책임을 갖고 수행하는 통합테스트 운영 기준 마련"
+            "description": [
+              "구성원들 R&R 부여로 책임있는 통합테스트 운영 기준 마련"
+            ]
           }
         ]
       },
@@ -296,30 +317,39 @@
             "title": {
               "$ref": "dictionary.method.problem"
             },
-            "description": "기술 방식이 다양하고 AI 운영 경험이 적어 관리 책임이 불명확"
+            "description": [
+              "그룹사 AI 플랫폼으로 현 구현 기술 방식 나열의 정책은 계열사별 관리 책임 지정 어려움",
+              "AI 기반 프로젝트 수행 경험 少"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.gap"
             },
-            "description": "플랫폼 구성요소와 기술을 파악해 정책 체계와 목차 구조화"
+            "description": [
+              "플랫폼 구성요소와 기술을 파악해 정책 체계와 목차 구조화"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.standard"
             },
-            "description": "기술 중립 원칙, 단서·예외와 계열사·부서별 R&R 구체화"
+            "description": [
+              "기술 중립적 원칙 및 현 기술 방식은 단서·예외로 이해관계자 합의",
+              "계열사·부서별 R&R 지정 기준 마련"
+            ]
           },
           {
             "title": {
               "$ref": "dictionary.method.result"
             },
-            "description": "향후 기술 변경과 책임 관리까지 고려한 운영 정책 프레임워크 마련"
+            "description": [
+              "향후 기술 변경과 책임 관리까지 고려한 운영 정책 프레임워크 마련"
+            ]
           }
         ]
       }
-    ],
-    "closing": "먼저 기준을 정의하고, 사람을 연결해 팀의 실행을 이끄는 컨설턴트"
+    ]
   },
   "growth": {
     "eyebrow": {
@@ -333,20 +363,26 @@
           "$ref": "dictionary.method.problem"
         },
         "ai": "자료 수집·정리·요약",
-        "human": "문제의 우선순위와 범위 선정"
+        "human": "문제의 우선순위·수행범위 선정"
       },
       {
-        "label": "차이 분석",
+        "label": {
+          "$ref": "dictionary.method.gap"
+        },
         "ai": "스키마·산식·코드 비교와 불일치 후보 추출",
-        "human": "오류인지 업무 특성인지 판단"
+        "human": "오류인지 업무적 예외인지 판단"
       },
       {
-        "label": "기준 수립",
+        "label": {
+          "$ref": "dictionary.method.standard"
+        },
         "ai": "매핑·변환 코드·테스트 초안 생성",
         "human": "표준화 요소와 예외 기준 결정"
       },
       {
-        "label": "운영체계",
+        "label": {
+          "$ref": "dictionary.method.result"
+        },
         "ai": "프로세스 문서와 체크리스트 초안",
         "human": "변화관리, 책임 배분과 실행"
       }
@@ -355,21 +391,21 @@
     "foundations": [
       {
         "label": "RESPONSIBILITY",
-        "title": "끝까지 완수하는 책임감",
+        "title": "결과의 완성도와 오류를 끝까지 확인",
         "description": "전체 흐름을 파악하고 실행 기준까지 구체화"
       },
       {
         "label": "DEVELOPER",
-        "title": "구조를 이해하는 개발 경험",
-        "description": "기준의 이유를 설명하고 팀의 이해를 연결"
+        "title": "구성원의 성장 가능성을 발견하고 지원",
+        "description": "기준의 이유를 설명하고 구성원들 실행을 이끔"
       },
       {
         "label": "EMPATHY",
-        "title": "다른 관점을 잇는 공감",
-        "description": "업무와 기술, 서로 다른 구성원의 관점을 연결"
+        "title": "서로 다른 구성원의 관점을 공감하고 연결",
+        "description": "현업·설계자·개발자의 입장을 이해하고 업무와 기술 연결"
       }
     ],
-    "priorityTitle": "더 키울 판단 역량",
+    "priorityTitle": "더 키울 역량",
     "priorities": [
       {
         "title": "우선순위 설정",
@@ -377,7 +413,7 @@
       },
       {
         "title": "해결할 문제 정의",
-        "description": "주어진 문제 밖에서 더 중요한 문제를 발견"
+        "description": "주어진 문제 외, 풀어야 할 문제를 발견"
       },
       {
         "title": "판단에 대한 확신",
