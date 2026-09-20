@@ -261,3 +261,23 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 
 /* 이전에 사례 제목을 한 줄로 고정하던 규칙을 해제합니다. */
 #strengths .case-list button b{white-space:normal}
+
+/* 섹션 공통 정렬
+   JOURNEY를 기준으로 본문 최대 너비와 eyebrow 크기를 통일합니다. */
+#journey .slide-inner,
+#strengths .slide-inner,
+#growth .slide-inner{width:min(100%,1540px)}
+
+#journey .eyebrow,
+#strengths .eyebrow,
+#growth .eyebrow{
+  font-size:clamp(14px,1.15vw,19px);
+  line-height:1.2;
+  letter-spacing:.16em;
+}
+
+@media(max-height:560px) and (min-width:761px){
+  #journey .eyebrow,
+  #strengths .eyebrow,
+  #growth .eyebrow{font-size:12px}
+}
