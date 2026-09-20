@@ -246,3 +246,18 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 #growth .capability-value{height:98px;overflow:hidden}
 @media(max-height:720px) and (min-width:761px){#growth .capability-row,#growth .capability-toggle,#growth .capability-detail,#growth .capability-value{height:68px;min-height:68px}#growth .capability-row.expanded .capability-toggle{flex-basis:94px}#growth .capability-row.expanded .capability-detail{max-width:calc(100% - 101px)}}
 @media(max-width:760px){#growth .capability-row,#growth .capability-toggle,#growth .capability-detail,#growth .capability-value{height:50px;min-height:50px}#growth .capability-row.expanded .capability-toggle{flex-basis:76px}#growth .capability-row.expanded .capability-detail{max-width:calc(100% - 81px);gap:5px}}
+
+/* 텍스트 줄바꿈
+   한글 어절과 영문 단어를 우선 한 덩어리로 유지합니다.
+   다만 긴 문구가 컨테이너보다 넓을 때는 한글 글자 단위로 자연스럽게 줄바꿈해
+   텍스트가 잘리거나 화면 밖으로 넘치지 않도록 합니다. */
+:where(h1,h2,h3,h4,h5,h6,p,li,b,strong,span,small,button,a,figcaption){
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  line-break:strict;
+  hyphens:none;
+}
+
+/* 이전에 사례 제목을 한 줄로 고정하던 규칙을 해제합니다. */
+#strengths .case-list button b{white-space:normal}
